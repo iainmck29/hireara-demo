@@ -1,0 +1,70 @@
+{
+  "overview": {
+    "totalTasks": 8,
+    "completedTasks": 2,
+    "inProgressTasks": 3,
+    "overdueTasks": 1
+  },
+  "tasksByStatus": {
+    "todo": 3,
+    "in-progress": 3,
+    "completed": 2
+  },
+  "tasksByPriority": {
+    "low": 1,
+    "medium": 5,
+    "high": 2
+  },
+  "productivityMetrics": {
+    "tasksCompletedThisWeek": 2,
+    "averageCompletionTime": 8.5,
+    "mostProductiveDay": "Tuesday"
+  },
+  "userActivity": {
+    "activeUsers": 5,
+    "newUsersThisMonth": 1,
+    "totalUsers": 5
+  },
+  "trends": [
+    {
+      "date": "2024-12-02",
+      "completed": 1,
+      "created": 0
+    },
+    {
+      "date": "2024-12-03",
+      "completed": 0,
+      "created": 1
+    },
+    {
+      "date": "2024-12-04",
+      "completed": 0,
+      "created": 1
+    },
+    {
+      "date": "2024-12-05",
+      "completed": 1,
+      "created": 0
+    },
+    {
+      "date": "2024-12-06",
+      "completed": 0,
+      "created": 1
+    },
+    {
+      "date": "2024-12-07",
+      "completed": 0,
+      "created": 1
+    },
+    {
+      "date": "2024-12-08",
+      "completed": 0,
+      "created": 1
+    },
+    {
+      "date": "2024-12-09",
+      "completed": 0,
+      "created": 0
+    }
+  ]
+}

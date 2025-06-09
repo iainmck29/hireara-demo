@@ -1,0 +1,77 @@
+[
+  {
+    "id": "user-1",
+    "name": "Alice Johnson",
+    "email": "alice@taskflow.com",
+    "avatar": "https://images.unsplash.com/photo-1494790108755-2616b612b442?w=64&h=64&fit=crop&crop=face",
+    "role": "admin",
+    "department": "Engineering",
+    "createdAt": "2024-01-15T09:00:00Z",
+    "lastActive": "2024-12-09T14:30:00Z",
+    "preferences": {
+      "theme": "light",
+      "notifications": true,
+      "timezone": "America/New_York"
+    }
+  },
+  {
+    "id": "user-2",
+    "name": "Bob Smith",
+    "email": "bob@taskflow.com",
+    "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=face",
+    "role": "manager",
+    "department": "Product",
+    "createdAt": "2024-02-01T10:00:00Z",
+    "lastActive": "2024-12-09T13:45:00Z",
+    "preferences": {
+      "theme": "dark",
+      "notifications": true,
+      "timezone": "America/Los_Angeles"
+    }
+  },
+  {
+    "id": "user-3",
+    "name": "Carol Davis",
+    "email": "carol@taskflow.com",
+    "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
+    "role": "member",
+    "department": "Design",
+    "createdAt": "2024-03-10T11:00:00Z",
+    "lastActive": "2024-12-09T12:15:00Z",
+    "preferences": {
+      "theme": "light",
+      "notifications": false,
+      "timezone": "Europe/London"
+    }
+  },
+  {
+    "id": "user-4",
+    "name": "David Wilson",
+    "email": "david@taskflow.com",
+    "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face",
+    "role": "member",
+    "department": "Engineering",
+    "createdAt": "2024-04-05T08:30:00Z",
+    "lastActive": "2024-12-09T15:20:00Z",
+    "preferences": {
+      "theme": "dark",
+      "notifications": true,
+      "timezone": "America/Chicago"
+    }
+  },
+  {
+    "id": "user-5",
+    "name": "Eva Martinez",
+    "email": "eva@taskflow.com",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=face",
+    "role": "member",
+    "department": "Marketing",
+    "createdAt": "2024-05-20T09:15:00Z",
+    "lastActive": "2024-12-09T11:30:00Z",
+    "preferences": {
+      "theme": "light",
+      "notifications": true,
+      "timezone": "America/Denver"
+    }
+  }
+]
