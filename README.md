@@ -54,13 +54,19 @@ npm run lint
 
 This application contains strategically placed bugs for AI development tools demonstration:
 
-### 1. CSS Layout Bug (Sidebar.tsx)
-**Location**: `src/components/Sidebar.tsx:30-35`
-**Issue**: Conflicting CSS positioning properties causing desktop layout overlap
-**Symptoms**: 
-- Sidebar overlaps main content on desktop screens
-- Multiple conflicting position properties (static, absolute, flex)
-- Z-index conflicts
+### 1. Task Routing Bug (TaskList.tsx)
+**Location**: `src/components/TaskList.tsx:157`
+**Issue**: View buttons use filtered array indices instead of proper task IDs
+**How to Reproduce**:
+1. Go to Tasks page (`/tasks`)
+2. Apply any filter (status or priority filter)
+3. Click "View" button on any task
+4. **Wrong task opens** or you get a 404 error
+
+**Symptoms**:
+- Clicking "View" on filtered tasks opens wrong task details
+- 404 errors when filtered list is shorter than original
+- Demonstrates critical difference between array indices and proper data IDs
 
 ### 2. TypeScript Type Safety Issues (UserProfile.tsx)
 **Location**: `src/components/UserProfile.tsx`
@@ -88,9 +94,9 @@ This application contains strategically placed bugs for AI development tools dem
 - Runtime errors break user workflow
 - No IntelliSense support during development
 
-## 🔮 Missing Feature for Live Demo
+## 🔮 Missing Features for Live Demo
 
-### Smart Task Insights Analytics Panel
+### 1. Smart Task Insights Analytics Panel
 **Location**: `src/app/analytics/page.tsx`
 **Description**: AI-powered analytics feature placeholder
 **What's Missing**:
@@ -99,7 +105,19 @@ This application contains strategically placed bugs for AI development tools dem
 - Intelligent productivity recommendations
 - Advanced data visualizations with Chart.js
 
-This feature is intentionally incomplete to demonstrate live AI-assisted development during the demo.
+### 2. Time Tracking System (For Parallel Development)
+**Location**: Task components and new time tracking components
+**Description**: Task time tracking and reporting system
+**What's Missing**:
+- Start/stop timer functionality for tasks
+- Time entry logging and persistence
+- Time reports and summaries by task/user
+- Integration with existing task components
+- Timer UI components and time display formatting
+
+Both features are intentionally incomplete to demonstrate:
+- Live AI-assisted development 
+- **Git worktree parallel development workflows**
 
 ## 🏗️ Project Structure
 
@@ -113,8 +131,8 @@ src/
 ├── components/            # React components
 │   ├── __tests__/        # Component unit tests
 │   ├── DashboardStats.tsx
-│   ├── Sidebar.tsx       # Contains intentional CSS bug
-│   ├── TaskList.tsx
+│   ├── Sidebar.tsx
+│   ├── TaskList.tsx      # Contains intentional routing bug
 │   ├── UserProfile.tsx   # Contains intentional TypeScript issues
 │   └── ...
 ├── lib/                  # Utility functions and data access
@@ -135,9 +153,11 @@ __tests__/              # Jest unit tests
 
 ## 🎯 Demo Scenarios
 
-1. **Bug Discovery**: Use tools to identify CSS and TypeScript issues
-2. **Bug Resolution**: Fix layout conflicts and type safety problems
-3. **Feature Development**: Build Smart Task Insights with AI assistance
+1. **Bug Discovery**: Use tools to identify routing and TypeScript issues
+2. **Bug Resolution**: Fix task routing and type safety problems
+3. **Parallel Feature Development with Git Worktrees**:
+   - **Branch A**: Build Smart Task Insights with AI assistance
+   - **Branch B**: Build Time Tracking system with AI assistance
 4. **Quality Assurance**: Run tests and ensure code quality
 
 ## 📊 Sample Data
@@ -165,12 +185,14 @@ npm run test:e2e     # Run Playwright E2E tests
 
 The following issues are intentional for demonstration purposes:
 
-1. **Desktop Sidebar Overlap** - CSS positioning conflicts
+1. **Task Routing Bug** - Array indices used instead of proper task IDs
 2. **TypeScript Type Safety** - Multiple `any` type violations
-3. **Missing Smart Insights** - AI analytics feature placeholder
+3. **Missing Smart Analytics** - AI analytics feature placeholder
+4. **Missing Time Tracking** - Time tracking system placeholder
 
 These issues are designed to showcase AI development tool capabilities in:
 - Automated bug detection
 - Intelligent code completion
 - AI-assisted feature development
+- **Parallel development workflows with Git worktrees**
 - Code quality improvements
