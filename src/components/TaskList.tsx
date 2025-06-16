@@ -154,7 +154,7 @@ export function TaskList({ tasks, users }: TaskListProps) {
                 
                 <div className="ml-4 flex-shrink-0">
                   <Link
-                    href={`/tasks/task-${filteredTasks.indexOf(task) + 1}`}
+                    href={`/tasks/${task.id}`}
                     className="inline-flex items-center px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <Eye className="mr-1 h-4 w-4" />
