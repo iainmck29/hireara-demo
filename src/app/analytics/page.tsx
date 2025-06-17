@@ -1,4 +1,5 @@
 import { AnalyticsPlaceholder } from '@/components/AnalyticsPlaceholder';
+import { TimeTrackingAnalytics } from '@/components/TimeTrackingAnalytics';
 
 export default function AnalyticsPage() {
   return (
@@ -11,7 +12,10 @@ export default function AnalyticsPage() {
         </p>
       </div>
 
-      {/* Analytics Content */}
+      {/* Time Tracking Analytics */}
+      <TimeTrackingAnalytics />
+
+      {/* Existing Analytics Content */}
       <AnalyticsPlaceholder />
     </div>
   );

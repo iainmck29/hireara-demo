@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getTaskById, getUserById } from '@/lib/data';
 import { formatDateTime, getPriorityColor, getStatusColor } from '@/lib/utils';
 import { ArrowLeft, Calendar, User, Tag, Clock } from 'lucide-react';
+import { TaskTimeTrackingSection } from '@/components/TaskTimeTrackingSection';
 
 interface TaskDetailPageProps {
   params: {
@@ -65,6 +66,9 @@ export default async function TaskDetailPage({ params }: TaskDetailPageProps) {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Content */}
         <div className="lg:col-span-2 space-y-6">
+          {/* Time Tracking */}
+          <TaskTimeTrackingSection taskId={task.id} taskTitle={task.title} />
+
           {/* Description */}
           <div className="bg-white shadow rounded-lg p-6">
             <h2 className="text-lg font-medium text-gray-900 mb-4">Description</h2>

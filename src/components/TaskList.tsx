@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { Task, User } from '@/types';
 import { formatDate, getPriorityColor, getStatusColor } from '@/lib/utils';
 import { Filter, Search, Plus, Eye } from 'lucide-react';
+import { TimeTracker, TimerBadge } from './TimeTracker';
+import { useTaskTimeEntries } from '@/contexts/TimeTrackingContext';
 
 interface TaskListProps {
   tasks: Task[];
@@ -116,6 +118,7 @@ export function TaskList({ tasks, users }: TaskListProps) {
                     >
                       {task.priority}
                     </span>
+                    <TimerBadge taskId={task.id} />
                   </div>
                   
                   <h3 className="text-lg font-medium text-gray-900 mb-1">
@@ -152,10 +155,11 @@ export function TaskList({ tasks, users }: TaskListProps) {
                   )}
                 </div>
                 
-                <div className="ml-4 flex-shrink-0">
-                  {/* Intentional bug: task-${filteredTasks.indexOf(task)} */}
+                <div className="ml-4 flex-shrink-0 flex items-center gap-3">
+                  <TimeTracker taskId={task.id} variant="compact" showElapsed={true} />
+                  
                   <Link
-                    href={`/tasks/task-${filteredTasks.indexOf(task)}`}
+                    href={`/tasks/${task.id}`}
                     className="inline-flex items-center px-3 py-1 border border-gray-300 rounded-md text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                   >
                     <Eye className="mr-1 h-4 w-4" />
