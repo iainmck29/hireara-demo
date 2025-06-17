@@ -5,6 +5,17 @@ import { User } from '@/types';
 import { formatDate } from '@/lib/utils';
 import { Mail, MapPin, Calendar, Settings, Save, X } from 'lucide-react';
 
+interface UserFormData {
+  name: string;
+  email: string;
+  department: string;
+  preferences: {
+    theme: 'light' | 'dark';
+    notifications: boolean;
+    timezone: string;
+  };
+}
+
 interface UserProfileProps {
   user: User;
 }
@@ -12,19 +23,20 @@ interface UserProfileProps {
 export function UserProfile({ user }: UserProfileProps) {
   const [isEditing, setIsEditing] = useState(false);
 
-  const [formData, setFormData] = useState<any>({
+  const [formData, setFormData] = useState<UserFormData>({
     name: user.name,
     email: user.email,
     department: user.department,
     preferences: user.preferences,
   });
 
-  const handleChange = (e: any) => {
-    const { name, value, type, checked } = e.target;
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const { name, value, type } = e.target;
+    const checked = 'checked' in e.target ? e.target.checked : false;
     
     if (name.startsWith('preferences.')) {
       const prefKey = name.split('.')[1];
-      setFormData((prev: any) => ({
+      setFormData((prev: UserFormData) => ({
         ...prev,
         preferences: {
           ...prev.preferences,
@@ -32,59 +44,47 @@ export function UserProfile({ user }: UserProfileProps) {
         },
       }));
     } else {
-      setFormData((prev: any) => ({
+      setFormData((prev: UserFormData) => ({
         ...prev,
         [name]: value,
       }));
     }
   };
 
-  // INTENTIONAL BUG: Function that gets called during form reset, but corrupts data due to any typing
   const handleFormReset = () => {
-    // BUG: Due to any typing, this accidentally sets wrong data types
-    // This simulates a common bug where any types allow incorrect data flow
-    setFormData((prev: any) => {
-      // Oops! Instead of resetting to original user data, we're setting problematic values
-      // This could happen due to a copy-paste error or refactoring mistake that any types don't catch
-      return {
-        name: prev.name === '' ? null : prev.name, // BUG: Sets null instead of empty string
-        email: prev.email === '' ? undefined : prev.email, // BUG: Sets undefined instead of empty string  
-        department: prev.department || 'Engineering',
-        preferences: {
-          theme: prev.preferences?.theme || 'light',
-          notifications: prev.preferences?.notifications === false ? 'disabled' : prev.preferences?.notifications, // BUG: Converts boolean to string
-          timezone: prev.preferences?.timezone || 'UTC'
-        }
-      };
-    });
+    setFormData((prev: UserFormData) => ({
+      name: prev.name === '' ? '' : prev.name,
+      email: prev.email === '' ? '' : prev.email,
+      department: prev.department || 'Engineering',
+      preferences: {
+        theme: prev.preferences?.theme || 'light',
+        notifications: typeof prev.preferences?.notifications === 'boolean' 
+          ? prev.preferences.notifications 
+          : false,
+        timezone: prev.preferences?.timezone || 'UTC'
+      }
+    }));
   };
 
-  // INTENTIONAL BUG: Function with any type that breaks when called
-  const validateFormData = (data: any) => {
-    // This will break because 'data' is typed as 'any' 
-    // and we're trying to call methods that don't exist
-    const errors = [];
+  const validateFormData = (data: UserFormData) => {
+    const errors: string[] = [];
     
-    // BUG: Assumes data.name has .trim() method, but could be undefined/null
-    if (!data.name.trim()) {
+    if (!data.name?.trim?.()) {
       errors.push('Name is required');
     }
     
-    // BUG: Assumes data.email has string methods
-    if (!data.email.includes('@')) {
+    if (typeof data.email !== 'string' || !data.email.includes('@')) {
       errors.push('Invalid email format');
     }
     
-    // BUG: Assumes preferences exists and has specific structure
-    if (data.preferences.notifications.toString() === 'invalid') {
+    if (typeof data.preferences.notifications !== 'boolean') {
       errors.push('Invalid notification setting');
     }
     
     return errors;
   };
 
-  // INTENTIONAL BUG: Function with implicit any return type
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     try {
@@ -96,8 +96,7 @@ export function UserProfile({ user }: UserProfileProps) {
         return;
       }
       
-      // INTENTIONAL BUG: Variable with any type
-      const updateData: any = {
+      const updateData = {
         ...formData,
         updatedAt: new Date().toISOString(),
       };
@@ -110,30 +109,30 @@ export function UserProfile({ user }: UserProfileProps) {
       setIsEditing(false);
     } catch (error) {
       console.error('Error updating profile:', error);
-      alert('Failed to update profile: ' + error.message);
+      alert('Failed to update profile: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
-  // INTENTIONAL BUG: Function that clears form but due to any typing, sets wrong data types
   const handleClearForm = () => {
-    // BUG: This tries to "clear" the form but due to any typing, sets problematic values
-    // This simulates what happens when developers make mistakes that any types don't catch
-    setFormData((prev: any) => ({
-      name: '', // This will become null after handleFormReset processes it
-      email: '', // This will become undefined after handleFormReset processes it  
+    setFormData((prev: UserFormData) => ({
+      name: '', 
+      email: '', 
       department: prev.department,
       preferences: {
         ...prev.preferences,
-        notifications: false // This will become 'disabled' string after handleFormReset
+        notifications: false
       }
     }));
     
-    // Then the problematic reset function runs
     setTimeout(() => handleFormReset(), 100);
   };
 
-  // INTENTIONAL BUG: Function with any parameter type
-  const renderPreferenceField = (label: string, name: string, value: any, type: string = 'text') => {
+  const renderPreferenceField = (
+    label: string, 
+    name: string, 
+    value: string | boolean, 
+    type: string = 'text'
+  ) => {
     if (type === 'checkbox') {
       return (
         <div className="flex items-center">
@@ -141,7 +140,7 @@ export function UserProfile({ user }: UserProfileProps) {
             type="checkbox"
             id={name}
             name={name}
-            checked={value}
+            checked={typeof value === 'boolean' ? value : false}
             onChange={handleChange}
             className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
           />
@@ -161,7 +160,7 @@ export function UserProfile({ user }: UserProfileProps) {
           type={type}
           id={name}
           name={name}
-          value={value}
+          value={typeof value === 'string' ? value : ''}
           onChange={handleChange}
           className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
