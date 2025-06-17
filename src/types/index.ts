@@ -55,11 +55,84 @@ export interface Analytics {
     newUsersThisMonth: number;
     totalUsers: number;
   };
-  trends: {
-    date: string;
-    completed: number;
-    created: number;
-  }[];
+  trends: TrendData[];
+}
+
+export interface TrendData {
+  date: string;
+  completed: number;
+  created: number;
+  inProgress?: number;
+  overdue?: number;
+}
+
+export interface ChartData {
+  labels: string[];
+  datasets: ChartDataset[];
+}
+
+export interface ChartDataset {
+  label: string;
+  data: number[];
+  backgroundColor?: string | string[];
+  borderColor?: string | string[];
+  borderWidth?: number;
+  fill?: boolean;
+  tension?: number;
+}
+
+export interface TeamMetrics {
+  userId: string;
+  userName: string;
+  tasksCompleted: number;
+  tasksInProgress: number;
+  averageCompletionTime: number;
+  productivityScore: number;
+  department: string;
+  completionRate: number;
+}
+
+export interface Recommendation {
+  id: string;
+  type: 'priority' | 'productivity' | 'workflow' | 'deadline';
+  title: string;
+  description: string;
+  impact: 'high' | 'medium' | 'low';
+  confidence: number;
+  actionable: boolean;
+  suggestedAction?: string;
+  relatedTasks?: string[];
+  createdAt: string;
+}
+
+export interface ProductivityInsight {
+  metric: string;
+  value: number;
+  change: number;
+  trend: 'up' | 'down' | 'stable';
+  period: string;
+  comparison: string;
+}
+
+export interface AnalyticsFilters {
+  dateRange: {
+    start: string;
+    end: string;
+  };
+  users?: string[];
+  categories?: string[];
+  priorities?: ('low' | 'medium' | 'high')[];
+  statuses?: ('todo' | 'in-progress' | 'completed')[];
+}
+
+export interface ExportOptions {
+  format: 'pdf' | 'csv' | 'json';
+  dateRange: {
+    start: string;
+    end: string;
+  };
+  includeCharts: boolean;
+  sections: string[];
 }
 
 export interface DashboardStats {
