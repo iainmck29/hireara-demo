@@ -27,44 +27,233 @@
   },
   "trends": [
     {
+      "date": "2024-11-25",
+      "completed": 0,
+      "created": 1,
+      "inProgress": 0,
+      "overdue": 0
+    },
+    {
+      "date": "2024-11-26",
+      "completed": 0,
+      "created": 0,
+      "inProgress": 1,
+      "overdue": 0
+    },
+    {
+      "date": "2024-11-27",
+      "completed": 0,
+      "created": 0,
+      "inProgress": 1,
+      "overdue": 0
+    },
+    {
+      "date": "2024-11-28",
+      "completed": 0,
+      "created": 0,
+      "inProgress": 1,
+      "overdue": 0
+    },
+    {
+      "date": "2024-11-29",
+      "completed": 0,
+      "created": 0,
+      "inProgress": 1,
+      "overdue": 0
+    },
+    {
+      "date": "2024-11-30",
+      "completed": 0,
+      "created": 0,
+      "inProgress": 1,
+      "overdue": 0
+    },
+    {
+      "date": "2024-12-01",
+      "completed": 0,
+      "created": 1,
+      "inProgress": 2,
+      "overdue": 0
+    },
+    {
       "date": "2024-12-02",
       "completed": 1,
-      "created": 0
+      "created": 0,
+      "inProgress": 2,
+      "overdue": 1
     },
     {
       "date": "2024-12-03",
       "completed": 0,
-      "created": 1
+      "created": 1,
+      "inProgress": 2,
+      "overdue": 1
     },
     {
       "date": "2024-12-04",
       "completed": 0,
-      "created": 1
+      "created": 1,
+      "inProgress": 3,
+      "overdue": 1
     },
     {
       "date": "2024-12-05",
       "completed": 1,
-      "created": 0
+      "created": 0,
+      "inProgress": 2,
+      "overdue": 1
     },
     {
       "date": "2024-12-06",
       "completed": 0,
-      "created": 1
+      "created": 1,
+      "inProgress": 3,
+      "overdue": 1
     },
     {
       "date": "2024-12-07",
       "completed": 0,
-      "created": 1
+      "created": 1,
+      "inProgress": 3,
+      "overdue": 1
     },
     {
       "date": "2024-12-08",
       "completed": 0,
-      "created": 1
+      "created": 1,
+      "inProgress": 3,
+      "overdue": 1
     },
     {
       "date": "2024-12-09",
       "completed": 0,
-      "created": 0
+      "created": 0,
+      "inProgress": 3,
+      "overdue": 1
+    }
+  ],
+  "teamMetrics": [
+    {
+      "userId": "user-1",
+      "userName": "Alice Johnson",
+      "tasksCompleted": 1,
+      "tasksInProgress": 2,
+      "averageCompletionTime": 12.5,
+      "productivityScore": 78,
+      "department": "Engineering",
+      "completionRate": 33.3
+    },
+    {
+      "userId": "user-2",
+      "userName": "Bob Smith",
+      "tasksCompleted": 0,
+      "tasksInProgress": 2,
+      "averageCompletionTime": 0,
+      "productivityScore": 65,
+      "department": "Product",
+      "completionRate": 0
+    },
+    {
+      "userId": "user-3",
+      "userName": "Carol Davis",
+      "tasksCompleted": 1,
+      "tasksInProgress": 1,
+      "averageCompletionTime": 4.5,
+      "productivityScore": 92,
+      "department": "Design",
+      "completionRate": 50
+    },
+    {
+      "userId": "user-4",
+      "userName": "David Wilson",
+      "tasksCompleted": 0,
+      "tasksInProgress": 1,
+      "averageCompletionTime": 0,
+      "productivityScore": 55,
+      "department": "DevOps",
+      "completionRate": 0
+    },
+    {
+      "userId": "user-5",
+      "userName": "Eva Brown",
+      "tasksCompleted": 1,
+      "tasksInProgress": 0,
+      "averageCompletionTime": 12.0,
+      "productivityScore": 85,
+      "department": "Marketing",
+      "completionRate": 100
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "rec-1",
+      "type": "deadline",
+      "title": "Critical Deadline Alert",
+      "description": "User authentication task is approaching deadline with high priority",
+      "impact": "high",
+      "confidence": 95,
+      "actionable": true,
+      "suggestedAction": "Prioritize task-1 completion or extend deadline",
+      "relatedTasks": ["task-1"],
+      "createdAt": "2024-12-09T10:00:00Z"
+    },
+    {
+      "id": "rec-2",
+      "type": "productivity",
+      "title": "Team Workload Imbalance",
+      "description": "Some team members have high task loads while others are underutilized",
+      "impact": "medium",
+      "confidence": 82,
+      "actionable": true,
+      "suggestedAction": "Redistribute tasks to balance workload across team members",
+      "relatedTasks": ["task-3", "task-7"],
+      "createdAt": "2024-12-09T09:30:00Z"
+    },
+    {
+      "id": "rec-3",
+      "type": "workflow",
+      "title": "Documentation Bottleneck",
+      "description": "Documentation tasks are taking longer than average to complete",
+      "impact": "low",
+      "confidence": 71,
+      "actionable": true,
+      "suggestedAction": "Consider implementing documentation templates or tools",
+      "relatedTasks": ["task-4"],
+      "createdAt": "2024-12-09T08:45:00Z"
+    }
+  ],
+  "insights": [
+    {
+      "metric": "Task Completion Rate",
+      "value": 25,
+      "change": -8.3,
+      "trend": "down",
+      "period": "This Week",
+      "comparison": "vs Last Week"
+    },
+    {
+      "metric": "Average Resolution Time",
+      "value": 8.5,
+      "change": 2.1,
+      "trend": "up",
+      "period": "Last 30 Days",
+      "comparison": "vs Previous Period"
+    },
+    {
+      "metric": "Team Productivity Score",
+      "value": 75,
+      "change": 0,
+      "trend": "stable",
+      "period": "Current Month",
+      "comparison": "vs Last Month"
+    },
+    {
+      "metric": "Overdue Tasks",
+      "value": 1,
+      "change": 1,
+      "trend": "up",
+      "period": "Today",
+      "comparison": "vs Yesterday"
     }
   ]
 }
