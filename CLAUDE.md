@@ -41,22 +41,28 @@ A Next.js TypeScript task management dashboard with intentional bugs and missing
    **Symptoms**: Runtime errors, form crashes, data corruption allowed
    **Demo Value**: Shows critical importance of type safety and proper TypeScript usage
 
-### 3. Missing Feature - Smart Analytics (FOR LIVE CODING)
+### 3. Missing Feature - Smart Analytics (FOR LIVE CODING - SIMPLIFIED)
 
 **Location**: `src/app/analytics/page.tsx`
-**Feature**: Smart Task Insights Analytics Panel
-**What's Needed**: AI-powered task analytics with charts and recommendations
-**Demo Value**: Shows feature development from scratch with AI assistance
+**Feature**: Smart Task Insights Analytics Panel (Simplified for 2-3 min demo)
+**What's Needed**: 
+- Simple bar chart visualization using CSS (no chart libraries)
+- Mock "AI insights" with pre-written recommendations
+- Task completion statistics from existing data
+- Clean, professional UI that looks complete
+**Implementation**: Replace `AnalyticsPlaceholder` component with working analytics
+**Demo Value**: Shows rapid feature development with AI assistance
 
-### 4. Missing Feature - Time Tracking (FOR PARALLEL DEVELOPMENT)
+### 4. Missing Feature - Time Tracking (FOR PARALLEL DEVELOPMENT - SIMPLIFIED)
 
 **Location**: Task components and new time tracking components
-**Feature**: Task Time Tracking System
+**Feature**: Basic Task Timer Widget (Simplified for 2-3 min demo)
 **What's Needed**: 
-- Start/stop timers for tasks
-- Time entry logging and display
-- Time reports and summaries
-- Integration with existing task components
+- Simple start/stop button on task cards
+- Live elapsed time display (MM:SS format)
+- Basic time summary component showing total time today
+- Uses React state only (no persistence needed for demo)
+**Implementation**: Add timer component to TaskList cards
 **Demo Value**: Perfect for Git worktree parallel development demonstration
 
 ## Project Structure
@@ -82,9 +88,8 @@ A Next.js TypeScript task management dashboard with intentional bugs and missing
 
 - `src/components/TaskList.tsx` - Routing bug (line 157)
 - `src/components/UserProfile.tsx` - Type issues
-- `src/app/analytics/page.tsx` - Missing Smart Analytics feature
-- `src/lib/analytics.ts` - Foundation for Smart Insights
-- **Time Tracking Feature Files (to be created):**
-  - `src/components/TimeTracker.tsx` - Timer component
-  - `src/components/TimeEntry.tsx` - Time logging
-  - `src/lib/timeTracking.ts` - Time tracking utilities
+- `src/components/AnalyticsPlaceholder.tsx` - Replace with working analytics
+- `src/components/TaskList.tsx` - Add timer widget to task cards
+- **Simplified Feature Files:**
+  - Analytics: Just replace AnalyticsPlaceholder component
+  - Time Tracking: Add simple timer to existing TaskList component
