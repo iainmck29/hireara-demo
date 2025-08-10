@@ -15,19 +15,20 @@ A Next.js TypeScript task management dashboard with intentional bugs and missing
 
 ## Intentional Issues for Demo
 
-### 1. Task View Routing Bug (HIGH PRIORITY)
+### 1. Task View Routing Bug (HIGH PRIORITY) (TO BE COMPLETED BY DEVIN, CLAUDE SHOULD IGNORE THIS)
 
 **File**: `src/components/TaskList.tsx`
 **Issue**: Uses filtered array index instead of actual task ID for routing
 **Line**: 157
 **How to Reproduce**:
+
 1. Go to /tasks
 2. Apply any filter (status or priority)
 3. Click "View" on any task → **Opens wrong task or 404**
-**Symptoms**: Wrong task details displayed, 404 errors when filtered list is shorter
-**Demo Value**: Shows critical difference between array indices and proper IDs, data modeling importance
+   **Symptoms**: Wrong task details displayed, 404 errors when filtered list is shorter
+   **Demo Value**: Shows critical difference between array indices and proper IDs, data modeling importance
 
-### 2. TypeScript Type Safety (HIGH PRIORITY)
+### 2. TypeScript Type Safety (HIGH PRIORITY) (TO BE COMPLETED BY DEVIN, CLAUDE SHOULD IGNORE THIS)
 
 **File**: `src/components/UserProfile.tsx`
 **Issues**: Multiple `any` type violations causing runtime crashes
@@ -45,25 +46,27 @@ A Next.js TypeScript task management dashboard with intentional bugs and missing
 
 **Location**: `src/app/analytics/page.tsx`
 **Feature**: Smart Task Insights Analytics Panel (Simplified for 2-3 min demo)
-**What's Needed**: 
+**What's Needed**:
+
 - Simple bar chart visualization using CSS (no chart libraries)
 - Mock "AI insights" with pre-written recommendations
 - Task completion statistics from existing data
 - Clean, professional UI that looks complete
-**Implementation**: Replace `AnalyticsPlaceholder` component with working analytics
-**Demo Value**: Shows rapid feature development with AI assistance
+  **Implementation**: Replace `AnalyticsPlaceholder` component with working analytics
+  **Demo Value**: Shows rapid feature development with AI assistance
 
 ### 4. Missing Feature - Time Tracking (FOR PARALLEL DEVELOPMENT - SIMPLIFIED)
 
 **Location**: Task components and new time tracking components
 **Feature**: Basic Task Timer Widget (Simplified for 2-3 min demo)
-**What's Needed**: 
+**What's Needed**:
+
 - Simple start/stop button on task cards
 - Live elapsed time display (MM:SS format)
 - Basic time summary component showing total time today
 - Uses React state only (no persistence needed for demo)
-**Implementation**: Add timer component to TaskList cards
-**Demo Value**: Perfect for Git worktree parallel development demonstration
+  **Implementation**: Add timer component to TaskList cards
+  **Demo Value**: Perfect for Git worktree parallel development demonstration
 
 ## Project Structure
 
