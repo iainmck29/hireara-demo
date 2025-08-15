@@ -110,7 +110,7 @@ export function UserProfile({ user }: UserProfileProps) {
       setIsEditing(false);
     } catch (error) {
       console.error('Error updating profile:', error);
-      alert('Failed to update profile: ' + error.message);
+      alert('Failed to update profile: ' + (error instanceof Error ? error.message : 'Unknown error'));
     }
   };
 
